@@ -8,8 +8,8 @@ class App extends React.Component {
 
     this.state = {
       text: "",
-      happiness: 0,
-      sadness: 0
+      mood: null,
+      percentage: null
     }
 
     this.handleTextInput = this.handleTextInput.bind(this);
@@ -58,7 +58,16 @@ class App extends React.Component {
     var total = happyWords + sadWords;
     var happyPerc = (happyWords/total) * 100;
     var sadPerc = (sadWords/total) * 100;
-    this.setState({happiness: happyPerc, sadness: sadPerc});
+
+    if (happyPerc > sadPerc) {
+      this.setState({mood: "HAPPY!", percentage: happyPerc});
+    }
+    else if (happyPerc < sadPerc) {
+      this.setState({mood: "SAD...", percentage: sadPerc});
+    }
+    else {
+      this.setState({mood: "Unknown :-|", percentage: null});
+    }
   }
 
   handleTextInput(newText){
@@ -71,10 +80,8 @@ class App extends React.Component {
         <h1>Mood Search!</h1>
         <h3>Type in some text and find out how you feel today.</h3>
         <SearchText text={this.state.text} onTextInput={this.handleTextInput} onSubmit={this.onInputSubmit}/>
-        <h2>Happiness</h2>
-        <MoodBar percentage={this.state.happiness} />
-        <h2>Sadness</h2>
-        <MoodBar percentage={this.state.sadness} />
+        <h2>{this.state.mood}</h2>
+        <MoodBar percentage={this.state.percentage} />
       </div>
     );
   }
