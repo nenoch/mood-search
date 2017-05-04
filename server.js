@@ -12,9 +12,15 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.get('*', function(req, res) {
+app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
+
+// app.get('/test', function(req, res) {
+//   res.render(req.url, {
+//     test: require('./movies.json')
+//   });
+// });
 
 app.listen(3000, function(err) {
   if (err) {

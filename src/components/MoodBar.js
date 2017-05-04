@@ -1,10 +1,10 @@
 import React from 'react';
+import { ProgressBar } from 'react-bootstrap';
+
 
 class MoodBar extends React.Component {
   render(){
-    return (
-      <p>{this.props.percentage}</p>
-    );
+    return <ProgressBar active now={this.props.percentage} />
   }
 }
 
