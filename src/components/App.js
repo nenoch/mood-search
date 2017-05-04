@@ -22,19 +22,15 @@ class App extends React.Component {
 
     this.props.keywords.happy.forEach((word) => {
       var count = 0;
-      var regex = '\\b' + word + '\\b';
-      var pos = text.indexOf(regex);
+      var regex = new RegExp('\\b'+word+'\\b', 'gi')
+      var matching = text.match(regex);
 
-      while(pos > -1){
-        ++count;
-        pos = text.indexOf(regex, ++pos);
+      if (matching !== null) {
+        count += text.match(regex).length;
       }
-
-      console.log(count);
 
       happyTot += count;
     });
-
     return happyTot;
   }
 
@@ -43,16 +39,15 @@ class App extends React.Component {
 
     this.props.keywords.sad.forEach((word) => {
       var count = 0;
-      var pos = text.indexOf(word);
+      var regex = new RegExp('\\b'+word+'\\b', 'gi')
+      var matching = text.match(regex);
 
-      while(pos > -1){
-        ++count;
-        pos = text.indexOf(word, ++pos);
+      if (matching !== null) {
+        count += text.match(regex).length;
       }
 
       sadTot += count;
     });
-
     return sadTot;
   }
 
@@ -60,14 +55,12 @@ class App extends React.Component {
     var happyWords = this.happyAnalysis(this.state.text);
     var sadWords = this.sadAnalysis(this.state.text);
     var total = happyWords + sadWords;
-    var happyPerc = (happyWords/total) * 100;
-    var sadPerc = (sadWords/total) * 100;
 
-    if (happyPerc > sadPerc) {
-      this.setState({mood: "HAPPY!", percentage: happyPerc});
+    if (happyWords > sadWords) {
+      this.setState({mood: "HAPPY!", percentage: (happyWords/total) * 100});
     }
-    else if (happyPerc < sadPerc) {
-      this.setState({mood: "SAD...", percentage: sadPerc});
+    else if (happyWords < sadWords) {
+      this.setState({mood: "SAD...", percentage: (sadWords/total) * 100});
     }
     else {
       this.setState({mood: "Unknown :-|", percentage: null});
