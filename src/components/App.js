@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchText from './SearchText';
+import MoodResponse from './MoodResponse';
 import MoodBar from './MoodBar';
 
 class App extends React.Component {
@@ -14,7 +15,6 @@ class App extends React.Component {
 
     this.handleTextInput = this.handleTextInput.bind(this);
     this.onInputSubmit = this.onInputSubmit.bind(this);
-
   }
 
   happyAnalysis(text){
@@ -22,15 +22,19 @@ class App extends React.Component {
 
     this.props.keywords.happy.forEach((word) => {
       var count = 0;
-      var pos = text.indexOf(word);
+      var regex = '\\b' + word + '\\b';
+      var pos = text.indexOf(regex);
 
       while(pos > -1){
         ++count;
-        pos = text.indexOf(word, ++pos);
+        pos = text.indexOf(regex, ++pos);
       }
+
+      console.log(count);
 
       happyTot += count;
     });
+
     return happyTot;
   }
 
@@ -80,7 +84,7 @@ class App extends React.Component {
         <h1>Mood Search!</h1>
         <h3>Type in some text and find out how you feel today.</h3>
         <SearchText text={this.state.text} onTextInput={this.handleTextInput} onSubmit={this.onInputSubmit}/>
-        <h2>{this.state.mood}</h2>
+        <MoodResponse mood={this.state.mood} />
         <MoodBar percentage={this.state.percentage} />
       </div>
     );
