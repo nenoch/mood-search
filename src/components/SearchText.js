@@ -21,11 +21,13 @@ class SearchText extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input type="input"
-          placeholder="Type your sentence here..."
-          value={this.props.text}
-          onChange={this.handleNewInput} />
-          <button type="submit">Analyse!</button>
+          <div className="form-group">
+            <input type="input" className="form-control"
+            placeholder="Type your sentence here..."
+            value={this.props.text}
+            onChange={this.handleNewInput} />
+          </div>
+          <button type="submit" className="btn btn-success">Analyse!</button>
         </form>
       </div>
     );

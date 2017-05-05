@@ -4,7 +4,14 @@ import { ProgressBar } from 'react-bootstrap';
 
 class MoodBar extends React.Component {
   render(){
-    return <ProgressBar active now={this.props.percentage} />
+    var perc = this.props.percentage;
+
+    if (perc == null) {
+      return null;
+    }
+    return (
+      <ProgressBar active now={perc} label={`${perc}%`} />
+    );
   }
 }
 

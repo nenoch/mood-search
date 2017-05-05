@@ -73,7 +73,7 @@ class App extends React.Component {
 
   render(){
     return (
-      <div className='app'>
+      <div className='col-md-12 text-center'>
         <h1>Mood Search!</h1>
         <h3>Type in some text and find out how you feel today.</h3>
         <SearchText text={this.state.text} onTextInput={this.handleTextInput} onSubmit={this.onInputSubmit}/>
