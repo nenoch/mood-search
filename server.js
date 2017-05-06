@@ -16,11 +16,9 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// app.get('/test', function(req, res) {
-//   res.render(req.url, {
-//     test: require('./movies.json')
-//   });
-// });
+app.get('/api', function(req, res) {
+  res.sendFile(path.join(__dirname, './data/keywords.json'));
+});
 
 app.listen(3000, function(err) {
   if (err) {

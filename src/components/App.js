@@ -2,6 +2,7 @@ import React from 'react';
 import SearchText from './SearchText';
 import MoodResponse from './MoodResponse';
 import MoodBar from './MoodBar';
+import { get } from 'axios';
 
 class App extends React.Component {
   constructor(props){
@@ -9,6 +10,8 @@ class App extends React.Component {
 
     this.state = {
       text: "",
+      happyWs: null,
+      sadWs: null,
       mood: null,
       percentage: null
     }
@@ -17,10 +20,12 @@ class App extends React.Component {
     this.onInputSubmit = this.onInputSubmit.bind(this);
   }
 
-  happyAnalysis(text){
-    var happyTot = 0;
+  wordsAnalysis(array, text){
+    var total = 0;
 
-    this.props.keywords.happy.forEach((word) => {
+    console.log(array);
+
+    array.forEach((word) => {
       var count = 0;
       var regex = new RegExp('\\b'+word+'\\b', 'gi')
       var matching = text.match(regex);
@@ -29,31 +34,22 @@ class App extends React.Component {
         count += text.match(regex).length;
       }
 
-      happyTot += count;
+      total += count;
     });
-    return happyTot;
+    return total;
   }
 
-  sadAnalysis(text){
-    var sadTot = 0;
-
-    this.props.keywords.sad.forEach((word) => {
-      var count = 0;
-      var regex = new RegExp('\\b'+word+'\\b', 'gi')
-      var matching = text.match(regex);
-
-      if (matching !== null) {
-        count += text.match(regex).length;
-      }
-
-      sadTot += count;
+  componentDidMount() {
+  get(`http://localhost:3000/api`)
+    .then(({data}) => {
+      const {happyWs, sadWs} = data;
+      this.setState({ happyWs, sadWs });
     });
-    return sadTot;
-  }
+}
 
   onInputSubmit(){
-    var happyWords = this.happyAnalysis(this.state.text);
-    var sadWords = this.sadAnalysis(this.state.text);
+    var happyWords = this.wordsAnalysis(this.state.happyWs, this.state.text);
+    var sadWords = this.wordsAnalysis(this.state.sadWs, this.state.text);
     var total = happyWords + sadWords;
 
     if (happyWords > sadWords) {
@@ -67,8 +63,8 @@ class App extends React.Component {
     }
   }
 
-  handleTextInput(newText){
-    this.setState({ text: newText });
+  handleTextInput(text){
+    this.setState({ text });
   }
 
   render(){
