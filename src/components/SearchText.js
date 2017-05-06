@@ -1,4 +1,5 @@
 import React from 'react';
+import style from '../../css/main.css';
 
 class SearchText extends React.Component {
   constructor(props){
@@ -19,7 +20,7 @@ class SearchText extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={style.search_text}>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <input type="input" className="form-control"
@@ -27,7 +28,7 @@ class SearchText extends React.Component {
             value={this.props.text}
             onChange={this.handleNewInput} />
           </div>
-          <button type="submit" className="btn btn-success">Analyse!</button>
+          <button type="submit" className="btn btn-info">Analyse!</button>
         </form>
       </div>
     );

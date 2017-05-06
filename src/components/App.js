@@ -4,6 +4,7 @@ import MoodResponse from './MoodResponse';
 import MoodBar from './MoodBar';
 import { get } from 'axios';
 
+
 class App extends React.Component {
   constructor(props){
     super(props);
@@ -22,8 +23,6 @@ class App extends React.Component {
 
   wordsAnalysis(array, text){
     var total = 0;
-
-    console.log(array);
 
     array.forEach((word) => {
       var count = 0;

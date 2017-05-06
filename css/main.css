@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css');
+
+body {
+    background-color: yellow;
+    font-family: 'Montserrat', sans-serif;
+    margin: 10%;
+}
+
+h1 {
+  color: blue;
+}
+
+.search_text {
+  width: 75%;
+  margin: 5% auto;
+}
+
+.btn_analyse {
+  color: #000;
+  background-color: #fff;
+  border-color: #4cae4c;
+}
+
+.mood_bar {
+  font-size: 20px;
+  width: 75%;
+  height: 25px;
+  margin: 5% auto;
+}
