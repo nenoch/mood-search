@@ -28,7 +28,7 @@ class SearchText extends React.Component {
             value={this.props.text}
             onChange={this.handleNewInput} />
           </div>
-          <button type="submit" className="btn btn-info">Analyse!</button>
+          <button type="submit" className="btn btn-primary">Analyse!</button>
         </form>
       </div>
     );
