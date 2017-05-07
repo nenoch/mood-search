@@ -3,6 +3,8 @@ import SearchText from './SearchText';
 import MoodResponse from './MoodResponse';
 import MoodBar from './MoodBar';
 import { get } from 'axios';
+import FontAwesome from 'react-fontawesome';
+
 
 
 class App extends React.Component {
@@ -52,13 +54,13 @@ class App extends React.Component {
     var total = happyWords + sadWords;
 
     if (happyWords > sadWords) {
-      this.setState({mood: "HAPPY!", percentage: (happyWords/total) * 100});
+      this.setState({mood: "happy", percentage: (happyWords/total) * 100});
     }
     else if (happyWords < sadWords) {
-      this.setState({mood: "SAD...", percentage: (sadWords/total) * 100});
+      this.setState({mood: "sad", percentage: (sadWords/total) * 100});
     }
-    else {
-      this.setState({mood: "Unknown :-|", percentage: null});
+    else if (happyWords == sadWords) {
+      this.setState({mood: "unknown", percentage: null});
     }
   }
 
@@ -69,8 +71,14 @@ class App extends React.Component {
   render(){
     return (
       <div className='col-md-12 text-center'>
-        <h1>Mood Search!</h1>
-        <h3>Type in some text and find out how you feel today.</h3>
+        <h1>MOOD SEARCH</h1>
+        <FontAwesome
+          className='blue'
+          name='rocket'
+          size='5x'
+          spin
+        />
+        <h3>Type in some text and find out how you feel today!</h3>
         <SearchText text={this.state.text} onTextInput={this.handleTextInput} onSubmit={this.onInputSubmit}/>
         <MoodResponse mood={this.state.mood} />
         <MoodBar percentage={this.state.percentage} />
