@@ -2,7 +2,7 @@
 Mood Search
 =====================
 
-<div style="text-align:center;">![Homepage](./imgs/img1.png)</div>
+![Homepage](./imgs/img1.png)
 
 #### Specifications
 
@@ -14,13 +14,13 @@ Mood Search
 - Engaging and colourful for kids.
 - Suitable for both mobile and desktop devices.  
 
-**Evaluates to Happy**<div style="text-align:center;">![Search with happy output](./imgs/happy.gif)</div>
+**Evaluates to Happy**![Search with happy output](./imgs/happy.gif)
 
-**Evaluates to Unknown**<div style="text-align:center;">![Search with unknown output](./imgs/unknown.gif)</div>
+**Evaluates to Unknown**![Search with unknown output](./imgs/unknown.gif)
 
-**Evaluates to Sad**<div style="text-align:center;">![Search with sad output](./imgs/sad.gif)</div>
+**Evaluates to Sad**![Search with sad output](./imgs/sad.gif)
 
-**Calculates sadness or happiness on a scale**<div style="text-align:center;">![Mood bar percentage of happiness](./imgs/percentage.gif)</div>
+**Calculates sadness or happiness on a scale**![Mood bar percentage of happiness](./imgs/percentage.gif)
 
 
 ### How to run Mood Search locally
@@ -38,7 +38,7 @@ $ npm start
 
 I started with a mockup of the interface to identify the different components, their responsibilities and hierarchy.
 
-<div style="text-align:center;">![Components Scheme](./imgs/comp-scheme.jpg)</div>
+![Components Scheme](./imgs/comp-scheme.jpg)
 
 So the state lives in App.js as main parent, that then passes data as props to all other underlying components. For this reason I also added here the Lifecycle function ```componentDidMount()``` to get keywords from the server at soon as App.js is mounted in the page. In this same component the logic analysing the content of the input is triggered on submit.
 
