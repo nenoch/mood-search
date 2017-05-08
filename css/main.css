@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 body {
     background-color: yellow;
@@ -11,23 +13,14 @@ h1 {
   font-size: 60px;
 }
 
-.search_text {
+.searchtext {
   width: 75%;
   margin: 5% auto;
 }
 
-.btn_analyse {
-  color: #000;
-  background-color: #fff;
-  border-color: #4cae4c;
-}
-
-.mood_bar {
+.moodbar {
   font-size: 20px;
   width: 75%;
   height: 25px;
   margin: 5% auto;
 }
-
-@import url('https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css');
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');

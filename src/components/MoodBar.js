@@ -11,7 +11,7 @@ class MoodBar extends React.Component {
       return null;
     }
     return (
-      <ProgressBar className={style.mood_bar} active now={perc} label={`${perc}%`} />
+      <ProgressBar className={style.moodbar} active now={perc} label={`${perc}%`} />
     );
   }
 }

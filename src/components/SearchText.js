@@ -20,7 +20,7 @@ class SearchText extends React.Component {
 
   render() {
     return (
-      <div className={style.search_text}>
+      <div className={style.searchtext}>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <input type="input" className="form-control"
