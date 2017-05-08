@@ -50,7 +50,7 @@ _Note: I paid special attention to write clear bullet points commits throughout 
 
 **Reflections**
 
-This is my first React App and I have to say that I really enjoyed building it, even though I am still a bit skeptical about putting logic in the interface. I had not enough time to both learn React and add appropriate Jest+Enzyme tests for documentation, but I will definitely do it them later on.
+This is my first React App and I have to say that I really enjoyed building it, even though I am still a bit skeptical about putting logic in the interface. I had not enough time to both learn React and add appropriate Jest+Enzyme tests for documentation, but I will definitely do it later on.
 
 ### Built on
 
