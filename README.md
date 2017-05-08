@@ -14,13 +14,13 @@ Mood Search
 - Engaging and colourful for kids.
 - Suitable for both mobile and desktop devices.  
 
-**Evaluates to Happy**![Search with happy output](./imgs/happy.gif)
+**Evaluates to Happy**<div style="text-align:center;">![Search with happy output](./imgs/happy.gif)</div>
 
-**Evaluates to Unknown**![Search with unknown output](./imgs/unknown.gif)
+**Evaluates to Unknown**<div style="text-align:center;">![Search with unknown output](./imgs/unknown.gif)</div>
 
-**Evaluates to Sad**![Search with sad output](./imgs/sad.gif)
+**Evaluates to Sad**<div style="text-align:center;">![Search with sad output](./imgs/sad.gif)</div>
 
-**Calculates sadness or happiness on a scale**![Mood bar percentage of happiness](./imgs/percentage.gif)
+**Calculates sadness or happiness on a scale**<div style="text-align:center;">![Mood bar percentage of happiness](./imgs/percentage.gif)</div>
 
 
 ### How to run Mood Search locally
